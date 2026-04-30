@@ -1,0 +1,34 @@
+//questão 2
+
+class Produto {
+  String nome;
+  double preco;
+
+  Produto(this.nome, this.preco);
+
+  void exibir() {
+    print('Produto: $nome');
+    print('Preço: R\$ $preco');
+  }
+}
+
+class ProdutoPerecivel extends Produto {
+  String dataValidade; // só da filha
+
+  ProdutoPerecivel(String nome, double preco, this.dataValidade)
+      : super(nome, preco); // manda pro pai
+
+  @override
+  void exibir() {
+    super.exibir(); // chama o do pai primeiro
+    print('Validade: $dataValidade');
+  }
+}
+
+void main() {
+  Produto p = Produto('Arroz', 8.50);
+  p.exibir();
+  print('---');
+  ProdutoPerecivel pp = ProdutoPerecivel('Leite', 5.00, '10/05/2026');
+  pp.exibir();
+}

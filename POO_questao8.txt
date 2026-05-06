@@ -1,0 +1,32 @@
+// ============================================================
+// QUESTÃO 8 - Livro e LivroDigital
+// ============================================================
+
+class Livro {
+  String titulo;
+  String autor;
+
+  Livro(this.titulo, this.autor);
+
+  void exibirInformacoes() {
+    print('Título: $titulo | Autor: $autor');
+  }
+}
+
+class LivroDigital extends Livro {
+  double tamanhoArquivo; // em MB
+
+  LivroDigital(String titulo, String autor, this.tamanhoArquivo)
+      : super(titulo, autor);
+
+  @override
+  void exibirInformacoes() {
+    super.exibirInformacoes();
+    print('Tamanho do arquivo: ${tamanhoArquivo}MB');
+  }
+}
+
+void main() {
+  LivroDigital livro = LivroDigital('O Senhor dos Anéis', 'J.R.R. Tolkien', 5.2);
+  livro.exibirInformacoes();
+}

@@ -1,0 +1,33 @@
+// ============================================================
+// QUESTÃO 5 - Pessoa e Aluno
+// ============================================================
+
+class Pessoa {
+  String nome;
+  int idade;
+
+  Pessoa(this.nome, this.idade);
+
+  void exibirDados() {
+    print('Nome: $nome | Idade: $idade');
+  }
+}
+
+class Aluno extends Pessoa {
+  String matricula;
+  String curso;
+
+  Aluno(String nome, int idade, this.matricula, this.curso)
+      : super(nome, idade);
+
+  @override
+  void exibirDados() {
+    super.exibirDados();
+    print('Matrícula: $matricula | Curso: $curso');
+  }
+}
+
+void main() {
+  Aluno aluno = Aluno('Lucas', 22, '2023087', 'Ciência da Computação');
+  aluno.exibirDados();
+}

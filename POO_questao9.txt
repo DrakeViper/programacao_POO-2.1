@@ -1,0 +1,38 @@
+// ============================================================
+// QUESTÃO 9 - Pedido e PedidoDelivery
+// ============================================================
+
+class Pedido {
+  String codigo;
+  double valorTotal;
+
+  Pedido(this.codigo, this.valorTotal);
+
+  void exibirPedido() {
+    print('Código: $codigo | Valor Total: R\$ $valorTotal');
+  }
+}
+
+class PedidoDelivery extends Pedido {
+  String enderecoEntrega;
+  double taxaEntrega;
+
+  PedidoDelivery(String codigo, double valorTotal, this.enderecoEntrega, this.taxaEntrega)
+      : super(codigo, valorTotal);
+
+  double calcularValorFinal() {
+    return valorTotal + taxaEntrega;
+  }
+
+  @override
+  void exibirPedido() {
+    super.exibirPedido();
+    print('Endereço: $enderecoEntrega | Taxa de entrega: R\$ $taxaEntrega');
+    print('Valor final com entrega: R\$ ${calcularValorFinal()}');
+  }
+}
+
+void main() {
+  PedidoDelivery pedido = PedidoDelivery('P042', 89.90, 'Av. Brasil, 456 - Apto 12', 8.50);
+  pedido.exibirPedido();
+}

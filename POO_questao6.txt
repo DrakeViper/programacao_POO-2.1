@@ -1,0 +1,36 @@
+// ============================================================
+// QUESTÃO 6 - Ingresso e IngressoVip
+// ============================================================
+
+class Ingresso {
+  String evento;
+  double valor;
+
+  Ingresso(this.evento, this.valor);
+
+  void exibirResumo() {
+    print('Evento: $evento | Valor: R\$ $valor');
+  }
+}
+
+class IngressoVip extends Ingresso {
+  double valorAdicional;
+
+  IngressoVip(String evento, double valor, this.valorAdicional)
+      : super(evento, valor);
+
+  double valorFinal() {
+    return valor + valorAdicional;
+  }
+
+  @override
+  void exibirResumo() {
+    super.exibirResumo();
+    print('Adicional VIP: R\$ $valorAdicional | Total: R\$ ${valorFinal()}');
+  }
+}
+
+void main() {
+  IngressoVip vip = IngressoVip('Festival Lollapalooza', 420.0, 150.0);
+  vip.exibirResumo();
+}
